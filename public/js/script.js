@@ -26,7 +26,6 @@ function initMap(mapOptions) {
   map.setMapTypeId(customMapTypeId);
 
   getPointsFromDb();
-
 }
 
 // styles gradient
