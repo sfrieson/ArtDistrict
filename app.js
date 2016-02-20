@@ -1,7 +1,8 @@
 var express = require('express'),
   app = express(),
   mongoose = require('mongoose'),
-  mongoConnect = 'mongodb://localhost/mapInfo';
+  mongoConnect = 'mongodb://localhost/mapInfo',
+  Business = require('../models/business.js');
 
 // ---------- db ---------- //
 mongoose.connect(mongoConnect);
@@ -21,6 +22,12 @@ app.set('view engine', 'jade');
 // ---------- route ---------- //
 app.get('/', function(req, res) {
   res.render('index');
+});
+
+app.get('/businesses', function(req, res){
+    Business.find({},{},function(err,response){
+        res.json(response.data);
+    });
 });
 
 // ---------- listen ---------- //
