@@ -1,22 +1,13 @@
 var express = require('express'),
-    app = express(),
-    router = express.Router(),
-    mongoose = require('express'),
-    mongoConnect = 'mongodb://localhost/mapInfo';
+  app = express(),
+  mongoose = require('mongoose'),
+  mongoConnect = 'mongodb://localhost/mapInfo';
 
-
+// ---------- db ---------- //
 mongoose.connect(mongoConnect);
 
-require('dotenv').load();
-
-app.use();
-
-var express = require('express');
-var router = express.Router();
+// ---------- yelp ---------- //
 var Yelp = require('yelp');
-
-
-
 var yelp = new Yelp({
   consumer_key: process.env.CONSUMERKEY,
   consumer_secret: process.env.CONSUMERSECRET,
@@ -24,6 +15,24 @@ var yelp = new Yelp({
   token_secret: process.env.TOKENSECRET
 });
 
-router.get('/', function(req,res){
-    res.render();
+// ---------- middleware ---------- //
+
+require('dotenv').load();
+
+var morgan = require('morgan');
+app.use(morgan('dev'));
+
+app.use(express.static('./public'));
+
+app.set('view engine', 'jade');
+
+// ---------- route ---------- //
+app.get('/', function(req, res) {
+  res.render('index');
+});
+
+// ---------- listen ---------- //
+var port = 8080;
+app.listen(port, function() {
+  console.log('hi, ', port);
 });
