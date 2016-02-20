@@ -1,5 +1,7 @@
  console.log('mapatttackkkk');
 
+var map, heatmap;
+
 $(function() {
   initMap(initMapOptions);
   setSubmitHandler();
