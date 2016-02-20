@@ -1,3 +1,10 @@
+var express = require('express'),
+    app = express(),
+    mongoose = require('express'),
+    mongoConnect = 'mongodb://localhost/mapInfo';
+
+mongoose.connect(mongoConnect);
+
 require('dotenv').load();
 var express = require('express');
 var router = express.Router();
