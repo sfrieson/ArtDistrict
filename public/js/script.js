@@ -32,7 +32,7 @@ function changeGradient() {
 }
 
 // random points for now, will be ajax call eventually
-function getPoints() {
+function getRandomPoints() {
   var heatPointArray = [];
   for (i = 0; i < 1000; i++) {
     lat = 40.678 + Math.random() * 0.01
@@ -40,6 +40,16 @@ function getPoints() {
     heatPointArray.push(new google.maps.LatLng(lat, lng))
   }
   return heatPointArray;
+}
+
+function getPointsFromDb() {
+  $.ajax({
+    method: 'get',
+    url: 'api/businesses',
+    success: function(response) {
+      console.log('response', response);
+    }
+  });
 }
 
 // this will, update the heatpoints
@@ -56,7 +66,7 @@ function newHeatMap() {
     heatmap.setMap(null);
   }
   heatmap = new google.maps.visualization.HeatmapLayer({
-    data: getPoints(),
+    data: getRandomPoints(),
     map: map
   });
   changeGradient();
