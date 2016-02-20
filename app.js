@@ -6,15 +6,6 @@ var express = require('express'),
 // ---------- db ---------- //
 mongoose.connect(mongoConnect);
 
-// ---------- yelp ---------- //
-var Yelp = require('yelp');
-var yelp = new Yelp({
-  consumer_key: process.env.CONSUMERKEY,
-  consumer_secret: process.env.CONSUMERSECRET,
-  token: process.env.TOKEN,
-  token_secret: process.env.TOKENSECRET
-});
-
 // ---------- middleware ---------- //
 
 require('dotenv').load();
