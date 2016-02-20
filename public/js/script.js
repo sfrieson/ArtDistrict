@@ -24,7 +24,6 @@ function initMap(mapOptions) {
   map.setMapTypeId(customMapTypeId);
 
   newHeatMap();
-
 }
 
 // styles gradient
@@ -35,7 +34,7 @@ function changeGradient() {
 // random points for now, will be ajax call eventually
 function getPoints() {
   var heatPointArray = [];
-  for (i = 0; i < 100; i++) {
+  for (i = 0; i < 1000; i++) {
     lat = 40.678 + Math.random() * 0.01
     lng = -73.965 + Math.random() * 0.01
     heatPointArray.push(new google.maps.LatLng(lat, lng))
@@ -60,4 +59,5 @@ function newHeatMap() {
     data: getPoints(),
     map: map
   });
+  changeGradient();
 }
