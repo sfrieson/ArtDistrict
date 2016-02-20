@@ -1,11 +1,16 @@
 var express = require('express'),
     app = express(),
+    router = express.Router(),
     mongoose = require('express'),
     mongoConnect = 'mongodb://localhost/mapInfo';
+
 
 mongoose.connect(mongoConnect);
 
 require('dotenv').load();
+
+app.use();
+
 var express = require('express');
 var router = express.Router();
 var Yelp = require('yelp');
@@ -18,12 +23,6 @@ var yelp = new Yelp({
   token_secret: process.env.TOKENSECRET
 });
 
-router.get('/search', function(req,res){
-    yelp.search({ term:'',category_filter: 'museums', location: req.query.location || "new+york", sort:"0"})
-    .then(function(data){
-      console.log(data, 'data');
-      res.json(data)
-    })
-    .catch(function(err){
-      console.log(err);
-    })
+router.get('/', function(req,res){
+    res.render();
+});
