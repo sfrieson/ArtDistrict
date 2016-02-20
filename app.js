@@ -28,6 +28,7 @@ app.get('/businesses', function(req, res) {
   Business.find({}, {}, function(err, response) {
     res.json(response);
   });
+
 });
 
 // ---------- listen ---------- //
