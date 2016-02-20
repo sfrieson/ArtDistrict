@@ -1,0 +1,30 @@
+{
+  "name": "new-neighborhoods",
+  "version": "1.0.0",
+  "description": "Project for Hack.Summit() 2016",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sfrieson/NewNeighborhoods.git"
+  },
+  "keywords": [
+    "heat",
+    "map",
+    "yelp"
+  ],
+  "author": "Steven Frieson, Brian Duggan, David Lee, Aleksa Matiyev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sfrieson/NewNeighborhoods/issues"
+  },
+  "homepage": "https://github.com/sfrieson/NewNeighborhoods#readme",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "jade": "^1.11.0"
+  }
+}
