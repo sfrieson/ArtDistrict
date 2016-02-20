@@ -3,6 +3,7 @@ console.log('mapatttackkkk');
 $(function() {
   initMap(initMapOptions);
   setSubmitHandler();
+  getPointsFromDb();
 });
 
 var initMapOptions = {
@@ -23,7 +24,8 @@ function initMap(mapOptions) {
   map.mapTypes.set(customMapTypeId, mapStyle);
   map.setMapTypeId(customMapTypeId);
 
-  newHeatMap();
+  getPointsFromDb();
+
 }
 
 // styles gradient
@@ -45,9 +47,19 @@ function getRandomPoints() {
 function getPointsFromDb() {
   $.ajax({
     method: 'get',
-    url: 'api/businesses',
+    url: '/businesses',
     success: function(response) {
-      console.log('response', response);
+      var heatPoints = [];
+
+      for (i = 0; i < response.length; i++) {
+        var lat = response[i].lat;
+        var lng = response[i].lon;
+        heatPoints.push(new google.maps.LatLng(lat, lng))
+      }
+      console.log(heatPoints);
+
+      newHeatMap(heatPoints);
+
     }
   });
 }
@@ -56,17 +68,17 @@ function getPointsFromDb() {
 function setSubmitHandler() {
   $('#submit').click(function(e) {
     e.preventDefault();
-    newHeatMap();
+    getPointsFromDb();
   });
 }
 
 // this clears out the old heatmap and renders a new one.  eventually will be based on new data.
-function newHeatMap() {
+function newHeatMap(heatPoints) {
   if (heatmap) {
     heatmap.setMap(null);
   }
   heatmap = new google.maps.visualization.HeatmapLayer({
-    data: getRandomPoints(),
+    data: heatPoints,
     map: map
   });
   changeGradient();
