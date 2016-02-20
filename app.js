@@ -1,4 +1,5 @@
-require('dotenv').load()
+require('dotenv').load();
+var Yelp = require('yelp');
 
 
 var yelp = new Yelp({
