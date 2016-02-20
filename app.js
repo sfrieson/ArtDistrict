@@ -16,6 +16,7 @@ var router = express.Router();
 var Yelp = require('yelp');
 
 
+
 var yelp = new Yelp({
   consumer_key: process.env.CONSUMERKEY,
   consumer_secret: process.env.CONSUMERSECRET,
