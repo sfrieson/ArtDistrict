@@ -6,11 +6,20 @@ body{
   margin: 0;
 }
 
+h1{
+  margin: 0;
+  color: white;
+}
+
 .navbar{
   position: relative;
   height: 60px;
   margin: 0;
+  border-radius: 0px;
+  z-index: 50000;
 }
+
+.
 
 /*#title{
   position: relative;
