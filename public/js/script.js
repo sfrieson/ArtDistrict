@@ -117,11 +117,13 @@
  function setSubmitHandler() {
    $('#submit').click(function(e) {
      e.preventDefault();
-     //  var formValues = getFormValues(this);
      var tagValues = getTagValues(this);
-     clearHeatmaps();
-     //  getCategoryHeatPoints(formValues);
-     getTagHeatPoints(tagValues);
+     if (tagValues.length > 0){
+       clearHeatmaps();
+       getTagHeatPoints(tagValues);
+     } else {
+       console.log('You have nothing checked!');
+     }
    });
  }
 
