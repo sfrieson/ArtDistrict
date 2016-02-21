@@ -5,6 +5,7 @@
  $(function() {
    initMap(initMapOptions);
    setSubmitHandler();
+   toggleCategories();
  });
 
  var initMapOptions = {
@@ -12,7 +13,7 @@
      lat: 40.7164175,
      lng: -73.9392051
    },
-   scrollwheel: false,
+   scrollwheel: true,
    zoom: 11
  };
 
@@ -134,4 +135,18 @@
    }
  }
 
+ function toggleCategories() {
+  $('body').on('click', '#select-option', function(){
+    if($('.controls').css('top') === '-80px'){
+      $('.controls').animate({
+        top: '80px'
+      }, 500);
+    } else {
+      $('.controls').animate({
+        top: '-80px'
+      }, 500);
+    }
+  })
+ }
+ 
  //
