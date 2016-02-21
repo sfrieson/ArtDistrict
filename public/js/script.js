@@ -1,4 +1,4 @@
-console.log('mapatttackkkk');
+ console.log('mapatttackkkk');
 
 $(function() {
   initMap(initMapOptions);
