@@ -17,7 +17,8 @@
      lng: -73.9392051
    },
    scrollwheel: true,
-   zoom: 11
+   zoom: 11,
+   mapTypeControl: false
  };
 
  var map, heatmap;
