@@ -1,7 +1,7 @@
 var express = require('express'),
   app = express(),
   mongoose = require('mongoose'),
-  mongoConnect = 'mongodb://localhost/test',
+  mongoConnect = 'mongodb://localhost/test-ny',
   Business = require('./models/business.js');
 
 // ---------- db ---------- //
@@ -25,7 +25,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/businesses', function(req, res) {
-  Business.find({}, {}, function(err, response) {
+  Business.find({}, "lat lon", function(err, response) {
     res.json(response);
   });
 
