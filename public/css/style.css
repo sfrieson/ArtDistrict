@@ -1,6 +1,5 @@
 body{
   background-color: linen;
-  color: saddlebrown;
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -11,23 +10,21 @@ h1{
   color: white;
 }
 
-/*.navbar{
+.navbar{
   position: relative;
   height: 60px;
   margin: 0;
   border-radius: 0px;
   z-index: 50000;
-}*/
+}
 
 
 
-/*#title{
+#title{
   position: relative;
-  left: 100px;
-  top: 50px;
   margin: 0;
   font-size: 3em;
-}*/
+}
 
 /*.home-page{
   position: absolute;
@@ -41,13 +38,25 @@ h1{
 
 .controls{
   position: absolute;
-  top: 1em;
+  top: calc(60px + 1em);
   right: 1em;
   opacity: .8;
   font-size: 1.5em;
   z-index: 100;
-  background-color: linen;
+  width: 250px;
+  background-color: rgba(255,255,255,0.9);
   border-radius: .2em;
+  font-size: 1em;
+}
+
+form#controls input{
+  position: absolute;
+  right: 0px;
+}
+
+#submit{
+  position: absolute;
+  width: 100%;
 }
 
 #map{

@@ -1,3 +1,4 @@
+doctype html
 html
   head
     meta(name="viewport", content="width=device-width, initial-scale=1")
@@ -7,10 +8,27 @@ html
     
 body
     nav.navbar.navbar-inverse
-      ul.nav
-        li.logo  Hi 
-        li.search  Search
-    
+      div.container-fluid
+        div.navbar-header
+          button.navbar-toggle.collapse(type="button", data-toggle="collapse", data-target="#navbar-collapse-1", aria-expanded="false")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.nav-brand(href="#")
+            h3#title DataMap
+        div.collapse.navbar-collapse#navbar-collapse-1
+          form.navbar-form.navbar-right(role="search")
+            div.form-group(id="search-bar")
+              input.form-control(id="search-field", type="text", name="search", placeholder="Search")
+              button.btn.btn-default(type="submit") Submit
+
+    div.home-page
+      h1#title Data Map
+
+    #select-option
+      p.more-categories Select Categories
+
     .controls 
       form#controls 
         label.category-name Active Life
@@ -44,6 +62,7 @@ body
         input.tag(type="checkbox", name="Haunted House", value="Haunted House", checked=(true === false ? "checked" : undefined)). )
         br
         input#submit(type="submit", value="Submit").
+
 
     #map
 
