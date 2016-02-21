@@ -69,13 +69,23 @@
  }
 
  function getFormValues(form) {
-   var checkedBoxes = $(form).parent().children('input:checked');
+   var checkedBoxes = $(form).parent().children('input.category:checked');
    var values = [];
    checkedBoxes.each(function() {
      values.push($(this).val());
    });
+   console.log(values);
    return values
  }
+
+ // function getTagValues(form) {
+ //   var tagBoxes = $(form).parent().children('input.tag:checked');
+ //   var values  =[];
+ //   tagBoxes.each(function() {
+ //     values.push($(this).val());
+ //   });
+ //   return values
+ // }
 
 
  // this will, update the heatpoints
@@ -83,6 +93,7 @@
    $('#submit').click(function(e) {
      e.preventDefault();
      var formValues = getFormValues(this);
+    //  var tagValues = getTagValues(this);
      clearHeatmaps();
      getPointsFromDb(formValues);
    });
@@ -101,6 +112,5 @@
      heatmap.setMap(null);
    }
  }
-
 
  //

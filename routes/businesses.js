@@ -19,5 +19,13 @@ router.get('/:query', function(req, res){
   });
 });
 
+router.get('/tags', function(req,res){
+  var tags = req.body.tags;
+  Business.find({'tags': { $in: tags } }, function(err,response){
+    console.log(response);
+    res.json({'businesses': response});
+  })
+})
+
 module.exports = router;
 //
