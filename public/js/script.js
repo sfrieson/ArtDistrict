@@ -5,7 +5,6 @@
  $(function() {
    initMap(initMapOptions);
    setSubmitHandler();
-   setActiveHandler();
  });
 
  var initMapOptions = {
@@ -26,7 +25,7 @@
    map.mapTypes.set(customMapTypeId, mapStyle);
    map.setMapTypeId(customMapTypeId);
 
-  //  getPointsFromDb();
+   //  getPointsFromDb();
  }
 
 
@@ -47,31 +46,32 @@
  }
 
  function getPointsFromDb(queries) {
-   console.log(queries);
-   queries.forEach(function(query){
+   var j = 0;
+   var heatPoints = [];
+   queries.forEach(function(query) {
      $.ajax({
        method: 'get',
-       url: '/businesses/'+query,
+       url: '/businesses/' + query,
        success: function(response) {
-         var heatPoints = [];
          var businesses = response.businesses
          for (i = 0; i < businesses.length; i++) {
            var lat = businesses[i].lat;
            var lng = businesses[i].lon;
            heatPoints.push(new google.maps.LatLng(lat, lng))
          }
-        console.log(heatPoints);
-         newHeatMap(heatPoints);
-
+         j++;
+         if (j === queries.length) {
+           newHeatMap(heatPoints);
+         }
        }
      });
    })
  }
 
- function getFormValues(form){
+ function getFormValues(form) {
    var checkedBoxes = $(form).parent().children('input:checked');
    var values = [];
-   checkedBoxes.each(function(){
+   checkedBoxes.each(function() {
      values.push($(this).val());
    });
    return values
@@ -96,25 +96,11 @@
    });
  }
 
-function clearHeatmaps(){
+ function clearHeatmaps() {
    if (heatmap) {
      heatmap.setMap(null);
    }
-}
-
- function setActiveHandler() {
-   $('#active-life').click(function() {
-     e.preventDefault();
-     $.ajax({
-       method: 'get',
-       url: '/businesses/Active Life',
-       success: function(response) {
-         console.log(response);
-       }
-     })
-   })
  }
-
 
 
  //
