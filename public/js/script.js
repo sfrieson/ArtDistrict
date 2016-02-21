@@ -119,7 +119,7 @@
    $('#submit').click(function(e) {
      e.preventDefault();
      var tagValues = getTagValues(this);
-     if (tagValues.length > 0){
+     if (tagValues.length > 0) {
        clearHeatmaps();
        getTagHeatPoints(tagValues);
      } else {
@@ -143,25 +143,27 @@
  }
 
  function enterToggle() {
-  $('body').on('click', '#enter', function() {
-    $('.navbar').css('display', 'block');
-    $('.home-page').animate({
-      left: '-100%'
-    }, 400, function(){
-      $('.navbar-right').css('display', 'block');
-    });
-  })
+   $('body').on('click', '#enter', function() {
+     $('.navbar').css('display', 'block');
+     $('.home-page').animate({
+       left: '-100%'
+     }, 400, function() {
+       $('.navbar-right').css('display', 'block');
+     });
+   })
  }
 
  function toggleCategories() {
    $('body').on('click', '#select-option', function() {
-     if ($('.controls').css('top') === '-104px') {
+     if ($('.controls').css('top') === '-404px') {
+       $('.more-categories').text('Hide Categories');
        $('.controls').animate({
-         top: '104px'
+         top: '60px'
        }, 500);
      } else {
+       $('.more-categories').text('Show Categories');
        $('.controls').animate({
-         top: '-104px'
+         top: '-404px'
        }, 500);
      }
    })
@@ -176,18 +178,17 @@
  }
 
  function setSelectAllButton() {
-  $('body').on('click', '#select-all', function(e){
-    e.preventDefault();
-    console.log($('input:checkbox').prop('checked'));
-    if($('input:checkbox').prop('checked') === false){
-      $('input:checkbox').prop('checked', true);
-      $('#select-all').html('deselect all');
-    }
-    else if($('input:checkbox').prop('checked') === true){
-      $('input:checkbox').prop('checked', false);
-      $('#select-all').html('select all');
-    }
-  });
+   $('body').on('click', '#select-all', function(e) {
+     e.preventDefault();
+     console.log($('input:checkbox').prop('checked'));
+     if ($('input:checkbox').prop('checked') === false) {
+       $('input:checkbox').prop('checked', true);
+       $('#select-all').html('deselect all');
+     } else if ($('input:checkbox').prop('checked') === true) {
+       $('input:checkbox').prop('checked', false);
+       $('#select-all').html('select all');
+     }
+   });
  }
 
  //
