@@ -6,12 +6,29 @@ body{
   margin: 0;
 }
 
-.home-page{
+.navbar{
   position: relative;
+  height: 60px;
+  margin: 0;
+}
+
+/*#title{
+  position: relative;
+  left: 100px;
+  top: 50px;
+  margin: 0;
+  font-size: 3em;
+}*/
+
+/*.home-page{
+  position: absolute;
   height: 100%;
   width: 100%;
-  background-color: red;
-}
+  background-color: #F1F0EF;
+  z-index: 400;
+  color: #181818;
+  margin: 0;
+}*/
 
 .controls{
   position: absolute;
@@ -26,6 +43,6 @@ body{
 
 #map{
   position: relative;
-  height: 100%;
+  height: calc(100% - 60px);
   width: 100%;
 }
