@@ -176,18 +176,17 @@
  }
 
  function setSelectAllButton() {
-   $('#select-all').click(function(e) {
-     e.preventDefault();
-     $('input:checkbox').attr('checked', 'true');
-     $('.select-toggle').toggle();
-   });
+  $('body').on('click', '#select-all', function(e){
+    e.preventDefault();
+    $('input:checkbox').attr('checked', 'true');
+    $('.select-toggle').toggle();
+  });
  }
 
  function setDeselectAllButton() {
-   $('#deselect-all').click(function(e) {
+   $('body').on('click', '#deselect-all', function(e){
      e.preventDefault();
-     $('input:checkbox').removeAttr('checked');
-     $('input:checkbox').attr('checked', '');
+     $('input:checkbox').prop('checked', false);
      $('.select-toggle').toggle();
    });
  }
