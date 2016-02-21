@@ -6,6 +6,7 @@
    initMap(initMapOptions);
    setSubmitHandler();
    toggleCategories();
+   toggleSubmit();
  });
 
  var initMapOptions = {
@@ -147,6 +148,14 @@
       }, 500);
     }
   })
+ }
+
+ function toggleSubmit() {
+  $('body').on('click', '#submit', function(){
+    $('.controls').animate({
+      top: '-104px'
+    }, 500);
+  });
  }
  
  //

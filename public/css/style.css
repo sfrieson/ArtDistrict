@@ -20,8 +20,8 @@ h1#title{
   text-align: center;
   width: 100%;
   top: 30%;
-  font-size: 3em;
-  color: white;
+  font-size: 5em;
+  color: #1A1A1A;
 }
 
 h3#title{
@@ -40,7 +40,7 @@ h3#title{
   width: 100%;
   background-color: #F1F0EF;
   z-index: 400;
-  color: #181818;
+  color: #1A1A1A;
   margin: 0;
 }
 
@@ -57,6 +57,7 @@ h3#title{
   width: 250px;
   background-color: rgba(255,255,255,1);
   border: 1px solid #1A1A1A;
+  cursor: pointer;
 }
 
 p{
@@ -79,6 +80,7 @@ p{
 .tag{
   position: relative;
   left: 230px;
+  cursor: pointer;
 }
 
 form#controls label{
