@@ -6,6 +6,13 @@ body{
   margin: 0;
 }
 
+.home-page{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: red;
+}
+
 .controls{
   position: absolute;
   top: 1em;
