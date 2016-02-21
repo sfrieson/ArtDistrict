@@ -3,6 +3,7 @@
  var map, heatmap;
 
  $(function() {
+   enterToggle();
    initMap(initMapOptions);
    setSubmitHandler();
    toggleCategories();
@@ -139,6 +140,17 @@
    if (heatmap) {
      heatmap.setMap(null);
    }
+ }
+
+ function enterToggle() {
+  $('body').on('click', '#enter', function() {
+    $('.navbar').css('display', 'block');
+    $('.home-page').animate({
+      left: '-100%'
+    }, 400, function(){
+      $('.navbar-right').css('display', 'block');
+    });
+  })
  }
 
  function toggleCategories() {

@@ -7,11 +7,32 @@ body{
 }
 
 .navbar{
+  display: none;
   position: relative;
   height: 60px;
   margin: 0;
   border-radius: 0px;
   z-index: 200;
+}
+
+.logo{
+  position: absolute;
+  width: 10%;
+  left: 30px;
+  height: auto;
+}
+
+#map-icon{
+  position: absolute;
+  width: 80px;
+  top: 20px;
+}
+
+#flame{
+  position: absolute;
+  width: 30px;
+  margin-left: 25px;
+  top: 6px;
 }
 
 h1#title{
@@ -21,7 +42,8 @@ h1#title{
   width: 100%;
   top: 16%;
   font-size: 5em;
-  color: #1A1A1A;
+  color: white;
+  text-shadow: 0px 4px #3C3D3F;
 }
 
 h3#title{
@@ -34,6 +56,7 @@ h3#title{
 }
 
 .home-page{
+  background-image: url(../images/cartographer.png);
   position: absolute;
   height: 100%;
   width: 100%;
@@ -43,37 +66,47 @@ h3#title{
   margin: 0;
 }
 
-.logo{
+h2#description{
   position: absolute;
-  width: 40%;
-  left: 30%;
-  top: 35%;
-}
-
-#map-icon{
-  position: absolute;
+  text-align: center;
   width: 100%;
+  top: 30%;
+  color: white;
+  text-shadow: 0px 4px #212223;
 }
 
-#flame{
-  position: absolute;
-  width: 30%;
-  left: 35%;
-  top: -50px;
+.navbar-right{
+  display: none;
 }
 
 #enter{
   position: absolute;
   width: 20%;
-  height: 5%;
-  padding-top: 4px;
+  height: 50px;
+  padding-top: 3px;
   left: 40%;
   text-align: center;
   bottom: 20%;
   font-size: 2em;
-  background-color: #BF342A;
-  color :white;
+  background-color: #DAE4E4;
+  box-shadow: 0px 10px 0px #888888;
+  color :#363636;
   border-radius: 5px;
+}
+
+.navbar-right{
+  margin-top: 12px;
+}
+
+#enter:hover{
+  outline: none;
+  bottom: calc(20% - 2px);
+  box-shadow: 0px 8px 0px #888888;
+}
+
+#enter:active{
+  bottom: calc(20% - 10px);
+  box-shadow: 0px 0px 0px #888888;
 }
 
 #select-option{
