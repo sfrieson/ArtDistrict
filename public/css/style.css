@@ -34,22 +34,24 @@ body{
 #select-option{
   position: absolute;
   top: 59px;
-  right: 1em;
+  right: .68em;
   opacity: .9;
   font-size: 1.5em;
   text-align: center;
-  height: 20px;
+  height: 44px;
   z-index: 150;
   width: 250px;
   background-color: rgba(255,255,255,1);
-  border-radius: .2em;
-  font-size: 1em;
   border: 1px solid #1A1A1A;
+}
+
+p{
+  margin: 0;
 }
 
 .controls{
   position: absolute;
-  top: -80px;
+  top: -104px;
   right: 1em;
   opacity: .8;
   font-size: 1.5em;

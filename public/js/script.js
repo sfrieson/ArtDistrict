@@ -137,13 +137,13 @@
 
  function toggleCategories() {
   $('body').on('click', '#select-option', function(){
-    if($('.controls').css('top') === '-80px'){
+    if($('.controls').css('top') === '-104px'){
       $('.controls').animate({
-        top: '80px'
+        top: '104px'
       }, 500);
     } else {
       $('.controls').animate({
-        top: '-80px'
+        top: '-104px'
       }, 500);
     }
   })
