@@ -153,9 +153,16 @@ form#controls label{
   margin-left: 10px;
 }
 
+button#select-all{
+  position: absolute;
+  width: 40%;
+  left: 0;
+}
+
 input#submit{
   position: absolute;
-  width: 100%;
+  width: 60%;
+  right: 0;
 }
 
 #map{
