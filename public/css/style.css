@@ -3,6 +3,7 @@ body{
   width: 100vw;
   height: 100vh;
   margin: 0;
+  font-family: Arial, Helvitca, sans-serif;
 }
 
 .navbar{
@@ -13,15 +14,26 @@ body{
   z-index: 200;
 }
 
-#title{
+h1#title{
   position: relative;
   margin: 0;
-  margin-top: 4px;
+  text-align: center;
+  width: 100%;
+  top: 30%;
   font-size: 3em;
   color: white;
 }
 
-/*.home-page{
+h3#title{
+  position: relative;
+  margin: 0;
+  margin-top: 4px;
+  margin-left: 10px;
+  font-size: 3em;
+  color: white;
+}
+
+.home-page{
   position: absolute;
   height: 100%;
   width: 100%;
@@ -29,13 +41,14 @@ body{
   z-index: 400;
   color: #181818;
   margin: 0;
-}*/
+}
 
 #select-option{
   position: absolute;
   top: 59px;
   right: .68em;
   opacity: .9;
+  padding-top: 4px;
   font-size: 1.5em;
   text-align: center;
   height: 44px;
@@ -62,12 +75,17 @@ p{
   font-size: 1em;
 }
 
-form#controls input{
-  position: absolute;
-  right: 0px;
+.category{
+  position: relative;
+  left: 230px;
 }
 
-#submit{
+form#controls label{
+  position: absolute;
+  margin-left: 10px;
+}
+
+input#submit{
   position: absolute;
   width: 100%;
 }
