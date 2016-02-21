@@ -30,7 +30,7 @@ app.get('/', function(req, res) {
 });
 
 var businessRouter = require('./routes/businesses.js');
-app.use('/businesses', businessRouter)
+app.use('/businesses', businessRouter);
 
 // ---------- listen ---------- //
 var port = process.env.PORT || 8080;

@@ -25,7 +25,7 @@
    map.mapTypes.set(customMapTypeId, mapStyle);
    map.setMapTypeId(customMapTypeId);
 
-   //  getPointsFromDb();
+   //  getCategoryHeatPoints();
  }
 
 
@@ -45,7 +45,7 @@
    return heatPointArray;
  }
 
- function getPointsFromDb(queries) {
+ function getCategoryHeatPoints(queries) {
    var j = 0;
    var heatPoints = [];
    queries.forEach(function(query) {
@@ -78,24 +78,45 @@
    return values
  }
 
- // function getTagValues(form) {
- //   var tagBoxes = $(form).parent().children('input.tag:checked');
- //   var values  =[];
- //   tagBoxes.each(function() {
- //     values.push($(this).val());
- //   });
- //   return values
- // }
+ function getTagValues(form) {
+   var tagBoxes = $(form).parent().children('input.tag:checked');
+   var values = [];
+   tagBoxes.each(function() {
+     values.push($(this).val());
+   });
+   return values
+ }
 
+ function getTagHeatPoints(tagArray) {
+   tags = {
+     tags: tagArray
+   }
+   $.ajax({
+     method: 'get',
+     url: '/businesses/tags/taco',
+     data: tags,
+     success: function(response) {
+       var heatPoints = [];
+       var businesses = response.businesses
+       for (var i = 0; i < businesses.length; i++) {
+         var lat = businesses[i].lat;
+         var lng = businesses[i].lon;
+         heatPoints.push(new google.maps.LatLng(lat, lng))
+       }
+       newHeatMap(heatPoints);
+     }
+   });
+ }
 
  // this will, update the heatpoints
  function setSubmitHandler() {
    $('#submit').click(function(e) {
      e.preventDefault();
-     var formValues = getFormValues(this);
-    //  var tagValues = getTagValues(this);
+     //  var formValues = getFormValues(this);
+     var tagValues = getTagValues(this);
      clearHeatmaps();
-     getPointsFromDb(formValues);
+     //  getCategoryHeatPoints(formValues);
+     getTagHeatPoints(tagValues);
    });
  }
 
