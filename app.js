@@ -1,7 +1,7 @@
 var express = require('express'),
   app = express(),
   mongoose = require('mongoose'),
-  mongoConnect = 'mongodb://localhost/test-ny',
+  mongoConnect = 'mongodb://localhost/ny',
   Business = require('./models/business.js');
 
 // ---------- db ---------- //
