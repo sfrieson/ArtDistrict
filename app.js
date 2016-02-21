@@ -24,19 +24,8 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
-app.get('/businesses', function(req, res) {
-  Business.find({}, "lat lon", function(err, response) {
-    res.json(response);
-  });
-
-});
-
-app.get('/businesses/:query', function(req, res){
-  var query = req.params.query;
-  Business.find({'category': query}, "lat lon", function(err, response){
-    res.json({'businesses': response});
-  });
-});
+var businessRouter = require('./routes/businesses.js');
+app.use('/businesses', businessRouter)
 
 // ---------- listen ---------- //
 var port = process.env.PORT || 8080;

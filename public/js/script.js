@@ -26,7 +26,7 @@
    map.mapTypes.set(customMapTypeId, mapStyle);
    map.setMapTypeId(customMapTypeId);
 
-   getPointsFromDb();
+  //  getPointsFromDb();
  }
 
 
@@ -46,47 +46,64 @@
    return heatPointArray;
  }
 
- function getPointsFromDb() {
-   $.ajax({
-     method: 'get',
-     url: '/businesses',
-     success: function(response) {
-       var heatPoints = [];
+ function getPointsFromDb(queries) {
+   console.log(queries);
+   queries.forEach(function(query){
+     $.ajax({
+       method: 'get',
+       url: '/businesses/'+query,
+       success: function(response) {
+         var heatPoints = [];
+         var businesses = response.businesses
+         for (i = 0; i < businesses.length; i++) {
+           var lat = businesses[i].lat;
+           var lng = businesses[i].lon;
+           heatPoints.push(new google.maps.LatLng(lat, lng))
+         }
+        console.log(heatPoints);
+         newHeatMap(heatPoints);
 
-       for (i = 0; i < response.length; i++) {
-         var lat = response[i].lat;
-         var lng = response[i].lon;
-         heatPoints.push(new google.maps.LatLng(lat, lng))
        }
-
-       newHeatMap(heatPoints);
-
-     }
-   });
+     });
+   })
  }
+
+ function getFormValues(form){
+   var checkedBoxes = $(form).parent().children('input:checked');
+   var values = [];
+   checkedBoxes.each(function(){
+     values.push($(this).val());
+   });
+   return values
+ }
+
 
  // this will, update the heatpoints
  function setSubmitHandler() {
    $('#submit').click(function(e) {
      e.preventDefault();
-     getPointsFromDb();
+     var formValues = getFormValues(this);
+     clearHeatmaps();
+     getPointsFromDb(formValues);
    });
  }
 
  // this clears out the old heatmap and renders a new one.  eventually will be based on new data.
  function newHeatMap(heatPoints) {
-   if (heatmap) {
-     heatmap.setMap(null);
-   }
    heatmap = new google.maps.visualization.HeatmapLayer({
      data: heatPoints,
      map: map
    });
-   // changeGradient();
  }
 
+function clearHeatmaps(){
+   if (heatmap) {
+     heatmap.setMap(null);
+   }
+}
+
  function setActiveHandler() {
-   $('#active-life').click(function(e) {
+   $('#active-life').click(function() {
      e.preventDefault();
      $.ajax({
        method: 'get',
