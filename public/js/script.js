@@ -9,7 +9,7 @@
    toggleCategories();
    toggleSubmit();
    setSelectAllButton();
-   setDeselectAllButton();
+   // setDeselectAllButton();
  });
 
  var initMapOptions = {
@@ -178,17 +178,16 @@
  function setSelectAllButton() {
   $('body').on('click', '#select-all', function(e){
     e.preventDefault();
-    $('input:checkbox').attr('checked', 'true');
-    $('.select-toggle').toggle();
+    console.log($('input:checkbox').prop('checked'));
+    if($('input:checkbox').prop('checked') === false){
+      $('input:checkbox').prop('checked', true);
+      $('#select-all').html('deselect all');
+    }
+    else if($('input:checkbox').prop('checked') === true){
+      $('input:checkbox').prop('checked', false);
+      $('#select-all').html('select all');
+    }
   });
- }
-
- function setDeselectAllButton() {
-   $('body').on('click', '#deselect-all', function(e){
-     e.preventDefault();
-     $('input:checkbox').prop('checked', false);
-     $('.select-toggle').toggle();
-   });
  }
 
  //
