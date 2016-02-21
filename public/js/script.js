@@ -3,7 +3,6 @@ console.log('mapatttackkkk');
 $(function() {
   initMap(initMapOptions);
   setSubmitHandler();
-  getPointsFromDb();
 });
 
 var initMapOptions = {
@@ -56,7 +55,6 @@ function getPointsFromDb() {
         var lng = response[i].lon;
         heatPoints.push(new google.maps.LatLng(lat, lng))
       }
-      console.log(heatPoints);
 
       newHeatMap(heatPoints);
 
