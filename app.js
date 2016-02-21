@@ -31,6 +31,13 @@ app.get('/businesses', function(req, res) {
 
 });
 
+app.get('/businesses/:query', function(req, res){
+  var query = req.params.query
+  Business.find({'category': query}, "lat lon", function(err, response){
+    res.json({'businesses': response})
+  })
+})
+
 // ---------- listen ---------- //
 var port = 8080;
 app.listen(port, function() {

@@ -5,6 +5,7 @@ var map, heatmap;
 $(function() {
   initMap(initMapOptions);
   setSubmitHandler();
+  setActiveHandler();
 });
 
 var initMapOptions = {
@@ -80,5 +81,27 @@ function newHeatMap(heatPoints) {
     data: heatPoints,
     map: map
   });
-  changeGradient();
+  // changeGradient();
 }
+
+function setActiveHandler(){
+  $('#active-life').click(function(e){
+    e.preventDefault();
+    $.ajax({
+      method: 'get',
+      url: '/businesses/Active Life',
+      success: function(response){
+        console.log(response);
+      }
+    })
+  })
+}
+
+
+
+
+
+
+
+
+//
