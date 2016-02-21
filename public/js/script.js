@@ -153,7 +153,7 @@
 
  function toggleCategories() {
    $('body').on('click', '#select-option', function() {
-     if ($('.controls').css('top') === '-404px') {
+     if ($('.controls').css('top') === '-604px') {
        $('.more-categories').text('Hide Categories');
        $('.controls').animate({
          top: '60px'
@@ -161,7 +161,7 @@
      } else {
        $('.more-categories').text('Show Categories');
        $('.controls').animate({
-         top: '-404px'
+         top: '-604px'
        }, 500);
      }
    })
