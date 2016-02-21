@@ -1,7 +1,8 @@
+require('dotenv').load();
 var express = require('express'),
   app = express(),
   mongoose = require('mongoose'),
-  mongoConnect = 'mongodb://localhost/ny-zip-01',
+  mongoConnect = 'mongodb://localhost/' + process.env.DB,
   Business = require('./models/business.js');
 
 // ---------- db ---------- //
@@ -10,7 +11,6 @@ mongoose.connect(mongoConnect);
 
 // ---------- middleware ---------- //
 
-require('dotenv').load();
 
 var morgan = require('morgan');
 app.use(morgan('dev'));
