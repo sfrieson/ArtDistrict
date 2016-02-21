@@ -7,6 +7,8 @@
    setSubmitHandler();
    toggleCategories();
    toggleSubmit();
+   setSelectAllButton();
+   setDeselectAllButton();
  });
 
  var initMapOptions = {
@@ -137,25 +139,42 @@
  }
 
  function toggleCategories() {
-  $('body').on('click', '#select-option', function(){
-    if($('.controls').css('top') === '-104px'){
-      $('.controls').animate({
-        top: '104px'
-      }, 500);
-    } else {
-      $('.controls').animate({
-        top: '-104px'
-      }, 500);
-    }
-  })
+   $('body').on('click', '#select-option', function() {
+     if ($('.controls').css('top') === '-104px') {
+       $('.controls').animate({
+         top: '104px'
+       }, 500);
+     } else {
+       $('.controls').animate({
+         top: '-104px'
+       }, 500);
+     }
+   })
  }
 
  function toggleSubmit() {
-  $('body').on('click', '#submit', function(){
-    $('.controls').animate({
-      top: '-104px'
-    }, 500);
-  });
+   $('body').on('click', '#submit', function() {
+     $('.controls').animate({
+       top: '-104px'
+     }, 500);
+   });
  }
- 
+
+ function setSelectAllButton() {
+   $('#select-all').click(function(e) {
+     e.preventDefault();
+     $('input:checkbox').attr('checked', 'true');
+     $('.select-toggle').toggle();
+   });
+ }
+
+ function setDeselectAllButton() {
+   $('#deselect-all').click(function(e) {
+     e.preventDefault();
+     $('input:checkbox').removeAttr('checked');
+     $('input:checkbox').attr('checked', '');
+     $('.select-toggle').toggle();
+   });
+ }
+
  //

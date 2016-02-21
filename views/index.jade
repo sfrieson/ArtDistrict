@@ -97,6 +97,8 @@ body
         label.tag-name Used Bookstore
         input.tag(type="checkbox", name="Used Bookstore", value="Used Bookstore", checked=(true === false ? "checked" : undefined)). )
         br
+        button#select-all.select-toggle select all
+        button#deselect-all.select-toggle(style="display: none") deselect all
         input#submit(type="submit", value="Submit").
 
 
